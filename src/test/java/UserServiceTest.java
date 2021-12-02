@@ -4,6 +4,7 @@ import jm.task.core.jdbc.service.UserServiceImpl;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.util.Arrays;
 import java.util.List;
 
 public class UserServiceTest {
@@ -74,7 +75,8 @@ public class UserServiceTest {
             userService.createUsersTable();
             userService.saveUser(testName, testLastName, testAge);
             List<User> userList = userService.getAllUsers();
-
+            System.out.println(userList.size());
+            System.out.println(Arrays.toString(userList.toArray()));
             if (userList.size() != 1) {
                 Assert.fail("Проверьте корректность работы метода сохранения пользователя/удаления или создания таблицы");
             }
